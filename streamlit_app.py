@@ -20,6 +20,10 @@ session = cnx.session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
+# Convert Snowpart DF to a Pandas DF
+pd_df=mydata_frame.to_pandas()
+st.dataframe(pf_df)
+st.stop()
 
 # Fruit Selection
 ingredients_list = st.multiselect(
