@@ -10,6 +10,13 @@ st.write(
   """Choose the fruits you want in your custom Smoothie!
   """)
 
+# ← ADD: Initialize session state defaults
+if 'name_on_order' not in st.session_state:
+    st.session_state['name_on_order'] = ''
+if 'ingredients_list' not in st.session_state:
+    st.session_state['ingredients_list'] = []
+  
+# ← ADD: key= parameter to both inputs  
 name_on_order = st.text_input("Name on Smoothie:")
 st.write('The name on your Smoothie will be: ', name_on_order)
 
@@ -19,7 +26,6 @@ session = cnx.session()
 
 # Show Fruit options from FRUIT_OPTIONS Table
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
-#st.stop()
 
 # Convert Snowpart DF to a Pandas DF
 pd_df=my_dataframe.to_pandas()
@@ -29,7 +35,8 @@ pd_df=my_dataframe.to_pandas()
 ingredients_list = st.multiselect(
     "Choose up to 5 ingredients:",
     my_dataframe,
-    max_selections=5
+    max_selections=5,
+    key='ingredients_list'
 )
 
 # Fruit Selection Stored in Orders Table
@@ -56,6 +63,8 @@ if ingredients_list:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
         time.sleep(5)
+        st.session_state['name_on_order'] = ''
+        st.session_state['ingredients_list'] = []
         st.rerun()
       
 
