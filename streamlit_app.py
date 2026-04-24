@@ -2,7 +2,31 @@ import streamlit as st
 import requests
 import pandas as pd
 import time
+import base64
 from snowflake.snowpark.functions import col
+from pathlib import Path
+
+def set_background(image_path: str):
+    img_data = Path(image_path).read_bytes()
+    b64 = base64.b64encode(img_data).decode()
+    ext = image_path.split(".")[-1]
+    st.markdown(f"""
+    <style>
+    .stApp {{
+        background-image: url("data:image/{ext};base64,{b64}");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }}
+    .block-container {{
+        background-color: rgba(255, 255, 255, 0.82);
+        border-radius: 16px;
+        padding: 2rem 2.5rem !important;
+    }}
+    </style>
+    """, unsafe_allow_html=True)
+
+set_background("background.jpg")  # ← put your filename here
 
 # Write directly to the app
 st.title(f":cup_with_straw: Customize your Smoothie! :cup_with_straw:")
