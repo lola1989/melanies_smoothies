@@ -56,6 +56,6 @@ if ingredients_list:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
         time.sleep(5)
-        st.return()
+        st.rerun()
       
 
