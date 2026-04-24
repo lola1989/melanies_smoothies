@@ -24,7 +24,7 @@ st.dataframe(data=my_dataframe, use_container_width=True)
 # Convert Snowpart DF to a Pandas DF
 pd_df=mydata_frame.to_pandas()
 st.dataframe(pf_df)
-st.stop()
+#st.stop()
 
 # Fruit Selection
 ingredients_list = st.multiselect(
@@ -42,8 +42,8 @@ if ingredients_list:
       # Display smoothiefroot nutrition information
         st.subheader(fruit_chosen + 'Nutrition Information')
         smoothiefroot_response = requests.get("[https://my.smoothiefroot.com/api/fruit/](https://my.smoothiefroot.com/api/fruit/)"+ fruit_chosen) 
-        st.text(smoothiefroot_response)
-        #sf_df = st.dataframe(data=smoothiefroot_response.json(). use_containter_width=True)
+        #st.text(smoothiefroot_response.json())
+        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_containter_width=True)
 
     #st.write(ingredients_string)
   
