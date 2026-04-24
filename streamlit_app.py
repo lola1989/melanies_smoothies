@@ -14,30 +14,53 @@ def set_background(image_path: str):
     <style>
     .stApp {{
         background-image: url("data:image/{ext};base64,{b64}");
-        background-size: cover;
+        background-size: 60%;        /* ← smaller, less stretched */
+        background-repeat: no-repeat;
         background-attachment: fixed;
-        background-position: top center;  /* ← anchors image to the top */
+        background-position: top right;
+        background-color: #e8f8fc;   /* ← fills the rest with a matching color */
     }}
     .block-container {{
         background-color: rgba(255, 255, 255, 0.88);
         border-radius: 16px;
         padding: 2rem 2.5rem !important;
     }}
-    /* Fix unreadable text in inputs */
+    /* Title */
+    h1 {{
+        color: #0e4f6b !important;
+    }}
+    /* Body text and labels */
+    p, label, .stMarkdown {{
+        color: #111111 !important;
+    }}
+    /* Name text input */
     .stTextInput input {{
         background-color: white !important;
         color: #111111 !important;
     }}
-    .stMultiSelect > div {{
+    /* Ingredients multiselect — make white */
+    .stMultiSelect > div > div {{
         background-color: white !important;
         color: #111111 !important;
     }}
-    p, label, .stMarkdown {{
+    .stMultiSelect div[data-baseweb="select"] > div {{
+        background-color: white !important;
         color: #111111 !important;
+    }}
+    /* Submit button — make it visible and pink */
+    .stButton > button {{
+        background-color: #f472b6 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-weight: 600 !important;
+    }}
+    .stButton > button:hover {{
+        background-color: #ec4899 !important;
+        color: white !important;
     }}
     </style>
     """, unsafe_allow_html=True)
-
 set_background("background.jpg")  # ← put your filename here
 
 # Write directly to the app
