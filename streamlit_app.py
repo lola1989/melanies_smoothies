@@ -14,20 +14,20 @@ def set_background(image_path: str):
     <style>
     .stApp {{
         background-image: url("data:image/{ext};base64,{b64}");
-        background-size: 100%;        /* ← smaller, less stretched */
+        background-size: 60%;
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: top right;
-        background-color: #e8f8fc;   /* ← fills the rest with a matching color */
+        background-color: #e8f8fc;
     }}
     .block-container {{
         background-color: rgba(255, 255, 255, 0.88);
         border-radius: 16px;
         padding: 2rem 2.5rem !important;
     }}
-    /* Title */
-    h1 {{
-        color: #0e4f6b !important;
+    /* Title and all headings */
+    h1, h2, h3 {{
+        color: #111111 !important;
     }}
     /* Body text and labels */
     p, label, .stMarkdown {{
@@ -38,25 +38,45 @@ def set_background(image_path: str):
         background-color: white !important;
         color: #111111 !important;
     }}
-    /* Ingredients multiselect — make white */
-    .stMultiSelect > div > div {{
-        background-color: white !important;
-        color: #111111 !important;
-    }}
+    /* Multiselect box — white background */
+    .stMultiSelect > div > div,
     .stMultiSelect div[data-baseweb="select"] > div {{
         background-color: white !important;
         color: #111111 !important;
     }}
-    /* Submit button — make it visible and pink */
+    /* Selected ingredient tags — mango orange */
+    .stMultiSelect span[data-baseweb="tag"] {{
+        background-color: #f97316 !important;
+        color: white !important;
+    }}
+    /* Dataframe tables — white background, dark text */
+    .stDataFrame {{
+        background-color: white !important;
+    }}
+    .stDataFrame table {{
+        background-color: white !important;
+        color: #111111 !important;
+    }}
+    .stDataFrame thead tr th {{
+        background-color: #f3f4f6 !important;
+        color: #111111 !important;
+        border-bottom: 1px solid #e5e7eb !important;
+    }}
+    .stDataFrame tbody tr td {{
+        background-color: white !important;
+        color: #111111 !important;
+        border-bottom: 1px solid #f3f4f6 !important;
+    }}
+    /* Submit button — mango orange */
     .stButton > button {{
-        background-color: #f472b6 !important;
+        background-color: #f97316 !important;
         color: white !important;
         border: none !important;
         border-radius: 8px !important;
         font-weight: 600 !important;
     }}
     .stButton > button:hover {{
-        background-color: #ec4899 !important;
+        background-color: #ea580c !important;
         color: white !important;
     }}
     </style>
