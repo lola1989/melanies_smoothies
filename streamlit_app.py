@@ -16,12 +16,24 @@ def set_background(image_path: str):
         background-image: url("data:image/{ext};base64,{b64}");
         background-size: cover;
         background-attachment: fixed;
-        background-position: center;
+        background-position: top center;  /* ← anchors image to the top */
     }}
     .block-container {{
-        background-color: rgba(255, 255, 255, 0.82);
+        background-color: rgba(255, 255, 255, 0.88);
         border-radius: 16px;
         padding: 2rem 2.5rem !important;
+    }}
+    /* Fix unreadable text in inputs */
+    .stTextInput input {{
+        background-color: white !important;
+        color: #111111 !important;
+    }}
+    .stMultiSelect > div {{
+        background-color: white !important;
+        color: #111111 !important;
+    }}
+    p, label, .stMarkdown {{
+        color: #111111 !important;
     }}
     </style>
     """, unsafe_allow_html=True)
