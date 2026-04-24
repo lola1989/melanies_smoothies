@@ -25,58 +25,8 @@ def set_background(image_path: str):
         border-radius: 16px;
         padding: 2rem 2.5rem !important;
     }}
-    /* Title and all headings */
-    h1, h2, h3 {{
-        color: #111111 !important;
-    }}
-    /* Body text and labels */
-    p, label, .stMarkdown {{
-        color: #111111 !important;
-    }}
-    /* Name text input */
-    .stTextInput input {{
-        background-color: white !important;
-        color: #111111 !important;
-    }}
-    /* Multiselect box — white background */
-    .stMultiSelect > div > div,
-    .stMultiSelect div[data-baseweb="select"] > div {{
-        background-color: white !important;
-        color: #111111 !important;
-    }}
-    /* Selected ingredient tags — mango orange */
     .stMultiSelect span[data-baseweb="tag"] {{
         background-color: #f97316 !important;
-        color: white !important;
-    }}
-    /* Dataframe tables — white background, dark text */
-    .stDataFrame {{
-        background-color: white !important;
-    }}
-    .stDataFrame table {{
-        background-color: white !important;
-        color: #111111 !important;
-    }}
-    .stDataFrame thead tr th {{
-        background-color: #f3f4f6 !important;
-        color: #111111 !important;
-        border-bottom: 1px solid #e5e7eb !important;
-    }}
-    .stDataFrame tbody tr td {{
-        background-color: white !important;
-        color: #111111 !important;
-        border-bottom: 1px solid #f3f4f6 !important;
-    }}
-    /* Submit button — mango orange */
-    .stButton > button {{
-        background-color: #f97316 !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 8px !important;
-        font-weight: 600 !important;
-    }}
-    .stButton > button:hover {{
-        background-color: #ea580c !important;
         color: white !important;
     }}
     </style>
