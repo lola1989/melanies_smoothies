@@ -19,7 +19,7 @@ session = cnx.session()
 # Show Fruit options from FRUIT_OPTIONS Table
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 st.dataframe(data=my_dataframe, use_container_width=True)
-st.stop()
+#st.stop()
 
 # Convert Snowpart DF to a Pandas DF
 pd_df=mydata_frame.to_pandas()
