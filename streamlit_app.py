@@ -17,7 +17,7 @@ if 'ingredients_list' not in st.session_state:
     st.session_state['ingredients_list'] = []
   
 # ← ADD: key= parameter to both inputs  
-name_on_order = st.text_input("Name on Smoothie:")
+name_on_order = st.text_input("Name on Smoothie:", key='name_on_order')
 st.write('The name on your Smoothie will be: ', name_on_order)
 
 # Get the current credentials
