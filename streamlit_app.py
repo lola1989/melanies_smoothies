@@ -29,7 +29,7 @@ def set_background(image_path: str):
 set_background("background.jpg")  # ← put your filename here
 
 # Write directly to the app
-st.title(f":cup_with_straw: Customize your Smoothie! :cup_with_straw:")
+st.title(f":cup_with_straw: Customize your Smoothie!")
 st.write(
   """Choose the fruits you want in your custom Smoothie!
   """)
