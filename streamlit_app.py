@@ -22,9 +22,9 @@ st.dataframe(data=my_dataframe, use_container_width=True)
 #st.stop()
 
 # Convert Snowpart DF to a Pandas DF
-pd_df=mydata_frame.to_pandas()
+pd_df=my_dataframe.to_pandas()
 st.dataframe(pf_df)
-#st.stop()
+st.stop()
 
 # Fruit Selection
 ingredients_list = st.multiselect(
