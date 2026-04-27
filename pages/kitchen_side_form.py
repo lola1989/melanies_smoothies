@@ -33,9 +33,11 @@ if my_dataframe:
                  , [when_matched().update({'ORDER_FILLED': edited_dataset['ORDER_FILLED']})])
             st.success('Order(s) Updated!', icon='👍')
             time.sleep(2)
-            st.rerun()
+            
         except:
             st.write('Something went wrong.')
+          
+        st.rerun()
             
 else:
     st.success("There are no pending orders right now.", icon='👍')
