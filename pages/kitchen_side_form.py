@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 from snowflake.snowpark.functions import col, when_matched
 
 # Write directly to the app
@@ -31,6 +32,8 @@ if my_dataframe:
                  , (og_dataset['ORDER_UID'] == edited_dataset['ORDER_UID']) \
                  , [when_matched().update({'ORDER_FILLED': edited_dataset['ORDER_FILLED']})])
             st.success('Order(s) Updated!', icon='👍')
+            time.sleep(2)
+            st.rerun()
         except:
             st.wtrit('Something went wrong.')
             
