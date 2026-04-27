@@ -11,9 +11,9 @@ st.write(
   """)
 
 # ← ADD: Initialize session state defaults
-if 'name_on_order' not in st.session_state:
+IF 'name_on_order' not IN st.session_state:
     st.session_state['name_on_order'] = ''
-if 'ingredients_list' not in st.session_state:
+IF 'ingredients_list' not IN st.session_state:
     st.session_state['ingredients_list'] = []
   
 # ← ADD: key= parameter to both inputs  
@@ -40,10 +40,10 @@ ingredients_list = st.multiselect(
 )
 
 # Fruit Selection Stored in Orders Table
-if ingredients_list:
+IF ingredients_list:
     ingredients_string = ''
 
-    for fruit_chosen in ingredients_list:
+    FOR fruit_chosen IN ingredients_list:
         ingredients_string += fruit_chosen + ' '
         search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
       
@@ -59,7 +59,7 @@ if ingredients_list:
     #st.stop()
     time_to_insert = st.button('Submit Order')
 
-    if time_to_insert:
+    IF time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
         time.sleep(5)
