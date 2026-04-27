@@ -10,10 +10,10 @@ st.write(
   """Choose the fruits you want in your custom Smoothie!
   """)
 
-# ← ADD: Initialize session state defaults
-IF 'name_on_order' not IN st.session_state:
+# ← ADD: initialize session state defaults
+if 'name_on_order' not in st.session_state:
     st.session_state['name_on_order'] = ''
-IF 'ingredients_list' not IN st.session_state:
+if 'ingredients_list' not in st.session_state:
     st.session_state['ingredients_list'] = []
   
 # ← ADD: key= parameter to both inputs  
@@ -40,26 +40,26 @@ ingredients_list = st.multiselect(
 )
 
 # Fruit Selection Stored in Orders Table
-IF ingredients_list:
+if ingredients_list:
     ingredients_string = ''
 
-    FOR fruit_chosen IN ingredients_list:
+    FOR fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
         search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
       
         # Display smoothiefroot nutrition information
-        st.subheader(fruit_chosen + ' Nutrition Information')
+        st.subheader(fruit_chosen + ' Nutrition information')
         smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}") 
         sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
   
-    # Insert Name_On_Order and Ingredients into DB
+    # insert Name_On_Order and ingredients into DB
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
             values ('""" + ingredients_string + """','""" + name_on_order + """')"""
 
     #st.stop()
     time_to_insert = st.button('Submit Order')
 
-    IF time_to_insert:
+    if time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
         time.sleep(2)
