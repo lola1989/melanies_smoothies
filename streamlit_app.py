@@ -47,10 +47,15 @@ if ingredients_list:
         ingredients_string += fruit_chosen + ' '
         search_on=pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
       
+      
         # Display smoothiefroot nutrition information
         st.subheader(fruit_chosen + ' Nutrition information')
-        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}") 
-        sf_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
+        smoothiefroot_response = requests.get(f"https://my.smoothiefroot.com/api/fruit/{search_on}")
+        fruit_data = smoothiefroot_response.json()
+
+        # Extract only the nutrition dict
+        nutrition_data = fruit_data.get("nutrition", {})
+        sf_df = st.dataframe(data=nutrition_data, use_container_width=True)
   
     # insert Name_On_Order and ingredients into DB
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
