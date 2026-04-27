@@ -62,7 +62,7 @@ IF ingredients_list:
     IF time_to_insert:
         session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered, ' + name_on_order + '!', icon="✅")
-        time.sleep(5)
+        time.sleep(2)
         del st.session_state['name_on_order']
         del st.session_state['ingredients_list']
         st.rerun()
