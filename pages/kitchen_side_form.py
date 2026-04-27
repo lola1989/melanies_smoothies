@@ -35,7 +35,7 @@ if my_dataframe:
             time.sleep(2)
             st.rerun()
         except:
-            st.wtrit('Something went wrong.')
+            st.write('Something went wrong.')
             
 else:
     st.success("There are no pending orders right now.", icon='👍')
