@@ -7,6 +7,10 @@ st.write(
   """Orders that need to be filled.
   """)
 
+# Get the current credentials
+cnx = st.connection("snowflake")
+session = cnx.session()
+
 # Show Order_Filled options from DB
 my_dataframe = session.table("smoothies.public.orders") \
     .filter(col("ORDER_FILLED") == 0) \
