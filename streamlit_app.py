@@ -55,7 +55,7 @@ if ingredients_list:
 
         # Extract only the nutrition dict
         nutrition_data = fruit_data.get("nutrition", {})
-        sf_df = st.dataframe(data=nutrition_data)
+        sf_df = st.dataframe(data=nutrition_data, use_container_width = False)
   
     # insert Name_On_Order and ingredients into DB
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
